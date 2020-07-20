@@ -3,6 +3,7 @@ let plus = document.getElementById('btnSum');
 let minus = document.getElementById('btnSub');
 let into = document.getElementById('btnMul');
 let divide = document.getElementById('btnDiv');
+let resultBox = document.getElementById('res');
 
 var val1 = [];
 var val2 = [];
@@ -11,30 +12,36 @@ var clicked = false;
 plus.addEventListener("click", function(){
     clicked = true;
     let middleOperator = '+';
+    resultBox.innerHTML += ' + ';
 });
 
 minus.addEventListener("click", function(){
     clicked = true;
     let middleOperator = '-';
+    resultBox.innerHTML += ' - ';
 });
 
 into.addEventListener("click", function(){
     clicked = true;
     let middleOperator = '*';
+    resultBox.innerHTML += ' * ';
 });
 
 divide.addEventListener("click", function(){
     clicked = true;
     let middleOperator = '/';
+    resultBox.innerHTML += '/';
 });
 
 function pushZero(){
     if(clicked){
         //if middleOperator is pressed
         val2.push(0);
+        resultBox.innerHTML += '0';
     }else{
         //if middleOperator is not pressed
         val1.push(0);
+        resultBox.innerHTML += '0';
     }    
 }
 
@@ -42,9 +49,11 @@ function pushOne(){
     if(clicked){
         //if middleOperator is pressed
         val2.push(1);
+        resultBox.innerHTML += '1';
     }else{
         //if middleOperator is not pressed
         val1.push(1);
+        resultBox.innerHTML += '1';
     }    
 }
 
@@ -101,10 +110,11 @@ function result(middleOperator){
     return numToBinary(ans);
 }
 
-function clear(){
-    val1 = [];
-    val2 = [];
-    clicked = false;
-}
+// function clear(){
+//     val1 = [];
+//     val2 = [];
+//     clicked = false;
+//     resultBox.innerHTML = ' ';
+// }
 
 
